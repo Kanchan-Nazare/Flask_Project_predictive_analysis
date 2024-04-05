@@ -5,11 +5,10 @@ import sys
 print(sys)
 
 app= Flask(__name__)
+
 @app.route('/')
-
-
 def index():
-    return render_template('iris.html')
+    return render_template('index.html')
 
 @app.route('/get_data', methods = ['POST'])
 def model_prediction():
@@ -35,5 +34,5 @@ def model_prediction():
 
     return target[result[0]]
 
-app.run(debug=True)
+app.run(host='0.0.0.0',debug=False,port=8080)
     
